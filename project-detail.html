@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -18,11 +17,11 @@
             color: #212529;
         }
 
-       .detail-container {
-    width: 94%;
-    max-width: 1700px;
-    margin: 40px auto 80px;
-}
+        .detail-container {
+            width: 94%;
+            max-width: 1700px;
+            margin: 40px auto 80px;
+        }
 
         .back-link {
             display: inline-block;
@@ -37,36 +36,9 @@
             opacity: 0.65;
         }
 
-       .gallery {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px;
-    margin-bottom: 60px;
-    align-items: start;
-}
-
-.gallery-item {
-    background: #ddd;
-    overflow: hidden;
-    cursor: pointer;
-    border-radius: 2px;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: contain;
-    transition: transform 0.45s ease, filter 0.45s ease;
-}
-
-        .gallery-item:hover img {
-            transform: scale(1.03);
-            filter: brightness(0.95);
-        }
-
         .detail-content {
             max-width: 1200px;
+            margin-bottom: 48px;
         }
 
         .project-title {
@@ -95,335 +67,33 @@
             margin-bottom: 14px;
         }
 
-        /* 弹出的预览大图 */
-        .lightbox {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.82);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 999;
-            padding: 30px;
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            align-items: start;
         }
 
-        .lightbox.active {
-            display: flex;
-        }
-
-        .lightbox img {
-            max-width: 92vw;
-            max-height: 88vh;
-            object-fit: contain;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.35);
-        }
-
-        .lightbox-close {
-            position: absolute;
-            top: 18px;
-            right: 24px;
-            color: #fff;
-            font-size: 42px;
+        .gallery-item {
+            background: #ddd;
+            overflow: hidden;
             cursor: pointer;
-            line-height: 1;
+            border-radius: 2px;
         }
 
-        @media (max-width: 1100px) {
-    .gallery {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .project-title {
-        font-size: 42px;
-    }
-
-    .project-description {
-        font-size: 18px;
-    }
-
-
-            .project-title {
-                font-size: 42px;
-            }
-
-            .project-description {
-                font-size: 18px;
-            }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            transition: transform 0.45s ease, filter 0.45s ease;
         }
-
-       @media (max-width: 768px) {
-    .detail-container {
-        width: 94%;
-        margin-top: 24px;
-    }
-
-    .gallery {
-        grid-template-columns: 1fr;
-        gap: 14px;
-    }
-
-    .project-title {
-        font-size: 34px;
-        margin-bottom: 18px;
-    }
-
-    .project-meta {
-        font-size: 16px;
-        margin-bottom: 16px;
-    }
-
-    .project-description {
-        font-size: 16px;
-        line-height: 1.8;
-    }
-
-        }
-    </style>
-</head>
-<body>
-    <div class="detail-container">
-        <a href="index.html" class="back-link">← 返回首页</a>
-
-        <div class="gallery" id="gallery"></div>
-
-        <div class="detail-content">
-            <h1 class="project-title" id="projectTitle">项目标题</h1>
-            <div class="project-meta" id="projectMeta"></div>
-            <div class="project-description" id="projectDescription"></div>
-        </div>
-    </div>
-
-    <div class="lightbox" id="lightbox">
-        <span class="lightbox-close" id="lightboxClose">&times;</span>
-        <img id="lightboxImage" src="" alt="预览图">
-    </div>
-
-    <script>
-        const projectData = {
-            1: {
-                title: "快题设计",
-                meta: "快题设计｜空间组织｜快速表达",
-                description: [
-                      "以真实场地问题为导向，进行限时景观快题设计与方案推演。",
-    "通过快速构建空间逻辑与功能结构，完成从问题分析到解决方案输出的全过程。",
-    "强化结构化思考、决策效率与复杂问题拆解能力。"
-                ],
-                images: [
-                    "images/design/11.jpg",
-                    "images/design/12.jpg",
-                    "images/design/13.jpg",
-                    "images/design/14.jpg",
-                    "images/design/15.jpg",
-                    "images/design/16.jpg",
-                    "images/design/17.jpg",
-                    "images/design/18.jpg",
-                    "images/design/19.jpg",
-                    "images/design/1.jpg",
-                    "images/design/2.jpg",
-                    "images/design/3.jpg",
-                    "images/design/4.jpg",
-                    "images/design/5.jpg",
-                    "images/design/6.jpg",
-                    
-                ]
-            },
-           
-            2: {
-                title: "浑源古城景区旅游总体规划",
-                meta: "景区规划｜文化遗产｜游线组织",
-                description: [
-                    "项目围绕浑源古城的历史文化资源、旅游动线和节点系统展开，构建兼具保护与活化的整体规划框架。",
-                    "重点处理古城空间结构梳理、核心景点串联、游客体验优化与在地文化传播，形成可实施、可运营、可传播的景区总体规划方案。"
-                ],
-                images: [
-                    "images/IP/1.jpg",
-                    "images/IP/2.jpg",
-                    "images/IP/3.jpg",
-                    "images/IP/4.jpg",
-                    "images/IP/5.jpg",
-                    
-                ]
-            },
-            3: {
-                title: "排版设计｜景观规划表达",
-                meta: "信息组织｜视觉层级｜版式构建",
-                description: [
-                     "基于版式构成与视觉节奏，进行系统化排版设计练习。",
-    "运用网格体系、留白关系与字体层级塑造清晰的信息结构。",
-    "强化画面节奏与视觉引导，提升整体表达的秩序感与设计感。"
-                ],
-                images: [
-                    "images/works/5.png",
-                    "images/works/2.jpg",
-                    "images/works/3.png",
-                    
-                
-                ]
-            },
-            4: {
-                title: "个人手绘作品集",
-                meta: "手绘表达｜空间草图｜视觉叙事",
-                description: [
-                    "作品集收录景观设计草图、节点推敲图、空间透视与概念表达，展示从前期构思到方案深化的全过程。",
-                    "强调画面构图、空间层次、透视表达与个人视觉语言，体现手绘在设计思考与方案表达中的价值。"
-                ],
-               images: [
-    "images/practice/1.jpg",
-    "images/practice/2.jpg",
-    "images/practice/3.jpg",
-    "images/practice/4.jpg",
-    "images/practice/5.jpg",
-    "images/practice/6.jpg",
-    "images/practice/7.jpg",
-    "images/practice/8.jpg",
-    "images/practice/9.jpg",
-    "images/practice/10.jpg",
-   
-]
-            }
-        };
-
-        const params = new URLSearchParams(window.location.search);
-        const id = params.get("id") || "1";
-        const project = projectData[id] || projectData["1"];
-
-        const gallery = document.getElementById("gallery");
-        const projectTitle = document.getElementById("projectTitle");
-        const projectMeta = document.getElementById("projectMeta");
-        const projectDescription = document.getElementById("projectDescription");
-
-        const lightbox = document.getElementById("lightbox");
-        const lightboxImage = document.getElementById("lightboxImage");
-        const lightboxClose = document.getElementById("lightboxClose");
-
-        projectTitle.textContent = project.title;
-        projectMeta.textContent = project.meta;
-        projectDescription.innerHTML = project.description
-            .map(text => `<p>${text}</p>`)
-            .join("");
-
-        project.images.forEach(src => {
-            const item = document.createElement("div");
-            item.className = "gallery-item";
-            item.innerHTML = `<img src="${src}" alt="${project.title}">`;
-
-            item.addEventListener("click", () => {
-                lightboxImage.src = src;
-                lightbox.classList.add("active");
-            });
-
-            gallery.appendChild(item);
-        });
-
-        lightboxClose.addEventListener("click", () => {
-            lightbox.classList.remove("active");
-        });
-
-        lightbox.addEventListener("click", (e) => {
-            if (e.target === lightbox) {
-                lightbox.classList.remove("active");
-            }
-        });
-    </script>
-</body>
-=======
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>作品详情</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        }
-
-        body {
-            background: #f1f1f1;
-            color: #212529;
-        }
-
-       .detail-container {
-    width: 94%;
-    max-width: 1700px;
-    margin: 40px auto 80px;
-}
-
-        .back-link {
-            display: inline-block;
-            margin-bottom: 28px;
-            color: #212529;
-            text-decoration: none;
-            font-size: 15px;
-            transition: opacity 0.3s ease;
-        }
-
-        .back-link:hover {
-            opacity: 0.65;
-        }
-
-       .gallery {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px;
-    margin-bottom: 60px;
-    align-items: start;
-}
-
-.gallery-item {
-    background: #ddd;
-    overflow: hidden;
-    cursor: pointer;
-    border-radius: 2px;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: contain;
-    transition: transform 0.45s ease, filter 0.45s ease;
-}
 
         .gallery-item:hover img {
             transform: scale(1.03);
             filter: brightness(0.95);
         }
 
-        .detail-content {
-            max-width: 1200px;
-        }
-
-        .project-title {
-            font-size: 54px;
-            font-weight: 500;
-            line-height: 1.2;
-            margin-bottom: 28px;
-            color: #111;
-        }
-
-        .project-meta {
-            font-size: 18px;
-            color: #666;
-            margin-bottom: 22px;
-            line-height: 1.8;
-        }
-
-        .project-description {
-            font-size: 20px;
-            line-height: 1.9;
-            color: #1f1f1f;
-            max-width: 1280px;
-        }
-
-        .project-description p {
-            margin-bottom: 14px;
-        }
-
-        /* 弹出的预览大图 */
         .lightbox {
             position: fixed;
             inset: 0;
@@ -443,7 +113,7 @@
             max-width: 92vw;
             max-height: 88vh;
             object-fit: contain;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
         }
 
         .lightbox-close {
@@ -457,19 +127,6 @@
         }
 
         @media (max-width: 1100px) {
-    .gallery {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .project-title {
-        font-size: 42px;
-    }
-
-    .project-description {
-        font-size: 18px;
-    }
-
-
             .project-title {
                 font-size: 42px;
             }
@@ -477,34 +134,41 @@
             .project-description {
                 font-size: 18px;
             }
+
+            .detail-content {
+                margin-bottom: 40px;
+            }
         }
 
-       @media (max-width: 768px) {
-    .detail-container {
-        width: 94%;
-        margin-top: 24px;
-    }
+        @media (max-width: 768px) {
+            .detail-container {
+                width: 94%;
+                margin-top: 24px;
+            }
 
-    .gallery {
-        grid-template-columns: 1fr;
-        gap: 14px;
-    }
+            .gallery {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
 
-    .project-title {
-        font-size: 34px;
-        margin-bottom: 18px;
-    }
+            .project-title {
+                font-size: 34px;
+                margin-bottom: 18px;
+            }
 
-    .project-meta {
-        font-size: 16px;
-        margin-bottom: 16px;
-    }
+            .project-meta {
+                font-size: 16px;
+                margin-bottom: 16px;
+            }
 
-    .project-description {
-        font-size: 16px;
-        line-height: 1.8;
-    }
+            .project-description {
+                font-size: 16px;
+                line-height: 1.8;
+            }
 
+            .detail-content {
+                margin-bottom: 28px;
+            }
         }
     </style>
 </head>
@@ -512,13 +176,13 @@
     <div class="detail-container">
         <a href="index.html" class="back-link">← 返回首页</a>
 
-        <div class="gallery" id="gallery"></div>
-
         <div class="detail-content">
             <h1 class="project-title" id="projectTitle">项目标题</h1>
             <div class="project-meta" id="projectMeta"></div>
             <div class="project-description" id="projectDescription"></div>
         </div>
+
+        <div class="gallery" id="gallery"></div>
     </div>
 
     <div class="lightbox" id="lightbox">
@@ -532,9 +196,9 @@
                 title: "快题设计",
                 meta: "快题设计｜空间组织｜快速表达",
                 description: [
-                      "以真实场地问题为导向，进行限时景观快题设计与方案推演。",
-    "通过快速构建空间逻辑与功能结构，完成从问题分析到解决方案输出的全过程。",
-    "强化结构化思考、决策效率与复杂问题拆解能力。"
+                    "以真实场地问题为导向，进行限时景观快题设计与方案推演。",
+                    "通过快速构建空间逻辑与功能结构，完成从问题分析到解决方案输出的全过程。",
+                    "强化结构化思考、决策效率与复杂问题拆解能力。"
                 ],
                 images: [
                     "images/design/11.jpg",
@@ -551,11 +215,9 @@
                     "images/design/3.jpg",
                     "images/design/4.jpg",
                     "images/design/5.jpg",
-                    "images/design/6.jpg",
-                    
+                    "images/design/6.jpg"
                 ]
             },
-           
             2: {
                 title: "浑源古城景区旅游总体规划",
                 meta: "景区规划｜文化遗产｜游线组织",
@@ -568,24 +230,21 @@
                     "images/IP/2.jpg",
                     "images/IP/3.jpg",
                     "images/IP/4.jpg",
-                    "images/IP/5.jpg",
-                    
+                    "images/IP/5.jpg"
                 ]
             },
             3: {
                 title: "排版设计｜景观规划表达",
                 meta: "信息组织｜视觉层级｜版式构建",
                 description: [
-                     "基于版式构成与视觉节奏，进行系统化排版设计练习。",
-    "运用网格体系、留白关系与字体层级塑造清晰的信息结构。",
-    "强化画面节奏与视觉引导，提升整体表达的秩序感与设计感。"
+                    "基于版式构成与视觉节奏，进行系统化排版设计练习。",
+                    "运用网格体系、留白关系与字体层级塑造清晰的信息结构。",
+                    "强化画面节奏与视觉引导，提升整体表达的秩序感与设计感。"
                 ],
                 images: [
                     "images/works/5.png",
                     "images/works/2.jpg",
-                    "images/works/3.png",
-                    
-                
+                    "images/works/3.png"
                 ]
             },
             4: {
@@ -595,19 +254,18 @@
                     "作品集收录景观设计草图、节点推敲图、空间透视与概念表达，展示从前期构思到方案深化的全过程。",
                     "强调画面构图、空间层次、透视表达与个人视觉语言，体现手绘在设计思考与方案表达中的价值。"
                 ],
-               images: [
-    "images/practice/1.jpg",
-    "images/practice/2.jpg",
-    "images/practice/3.jpg",
-    "images/practice/4.jpg",
-    "images/practice/5.jpg",
-    "images/practice/6.jpg",
-    "images/practice/7.jpg",
-    "images/practice/8.jpg",
-    "images/practice/9.jpg",
-    "images/practice/10.jpg",
-   
-]
+                images: [
+                    "images/practice/1.jpg",
+                    "images/practice/2.jpg",
+                    "images/practice/3.jpg",
+                    "images/practice/4.jpg",
+                    "images/practice/5.jpg",
+                    "images/practice/6.jpg",
+                    "images/practice/7.jpg",
+                    "images/practice/8.jpg",
+                    "images/practice/9.jpg",
+                    "images/practice/10.jpg"
+                ]
             }
         };
 
@@ -630,29 +288,38 @@
             .map(text => `<p>${text}</p>`)
             .join("");
 
-        project.images.forEach(src => {
+        project.images.forEach((src, index) => {
             const item = document.createElement("div");
             item.className = "gallery-item";
-            item.innerHTML = `<img src="${src}" alt="${project.title}">`;
+            item.innerHTML = `<img src="${src}" alt="${project.title} ${index + 1}">`;
 
             item.addEventListener("click", () => {
                 lightboxImage.src = src;
+                lightboxImage.alt = `${project.title} 大图预览 ${index + 1}`;
                 lightbox.classList.add("active");
             });
 
             gallery.appendChild(item);
         });
 
-        lightboxClose.addEventListener("click", () => {
+        function closeLightbox() {
             lightbox.classList.remove("active");
-        });
+            lightboxImage.src = "";
+        }
+
+        lightboxClose.addEventListener("click", closeLightbox);
 
         lightbox.addEventListener("click", (e) => {
             if (e.target === lightbox) {
-                lightbox.classList.remove("active");
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+                closeLightbox();
             }
         });
     </script>
 </body>
->>>>>>> 8601d93b0d83840faf5332e10e9bb24d260a1131
 </html>
