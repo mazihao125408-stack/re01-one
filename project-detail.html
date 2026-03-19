@@ -17,11 +17,11 @@
             color: #212529;
         }
 
-        .detail-container {
-            width: 92%;
-            max-width: 1400px;
-            margin: 40px auto 80px;
-        }
+       .detail-container {
+    width: 94%;
+    max-width: 1700px;
+    margin: 40px auto 80px;
+}
 
         .back-link {
             display: inline-block;
@@ -36,28 +36,28 @@
             opacity: 0.65;
         }
 
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 10px;
-            margin-bottom: 60px;
-        }
+       .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 60px;
+    align-items: start;
+}
 
-        .gallery-item {
-            background: #ddd;
-            overflow: hidden;
-            aspect-ratio: 4 / 5;
-            cursor: pointer;
-            border-radius: 2px;
-        }
+.gallery-item {
+    background: #ddd;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 2px;
+}
 
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.45s ease, filter 0.45s ease;
-        }
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    transition: transform 0.45s ease, filter 0.45s ease;
+}
 
         .gallery-item:hover img {
             transform: scale(1.03);
@@ -128,9 +128,18 @@
         }
 
         @media (max-width: 1100px) {
-            .gallery {
-                grid-template-columns: repeat(3, 1fr);
-            }
+    .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .project-title {
+        font-size: 42px;
+    }
+
+    .project-description {
+        font-size: 18px;
+    }
+
 
             .project-title {
                 font-size: 42px;
@@ -141,30 +150,32 @@
             }
         }
 
-        @media (max-width: 768px) {
-            .detail-container {
-                width: 94%;
-                margin-top: 24px;
-            }
+       @media (max-width: 768px) {
+    .detail-container {
+        width: 94%;
+        margin-top: 24px;
+    }
 
-            .gallery {
-                grid-template-columns: repeat(2, 1fr);
-            }
+    .gallery {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
 
-            .project-title {
-                font-size: 34px;
-                margin-bottom: 18px;
-            }
+    .project-title {
+        font-size: 34px;
+        margin-bottom: 18px;
+    }
 
-            .project-meta {
-                font-size: 16px;
-                margin-bottom: 16px;
-            }
+    .project-meta {
+        font-size: 16px;
+        margin-bottom: 16px;
+    }
 
-            .project-description {
-                font-size: 16px;
-                line-height: 1.8;
-            }
+    .project-description {
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
         }
     </style>
 </head>
@@ -189,36 +200,34 @@
     <script>
         const projectData = {
             1: {
-                title: "自动巡逻机器人",
-                meta: "智能硬件设计｜机器人感知与导航｜算法开发",
+                title: "快题设计",
+                meta: "快题设计｜空间组织｜快速表达",
                 description: [
-                    "一款紧凑型四足/四轮巡逻机器人（0.9米×0.6米×1.2米），设计用于自主室内外巡逻、异常检测，以及城市公园中的人类互动。",
-                    "作为核心算法开发者，我设计并实现了感知骨干——涵盖地图绘制、定位和多传感器融合——并领导了自主导航和行为人工智能模块的开发。"
+                      "以真实场地问题为导向，进行限时景观快题设计与方案推演。",
+    "通过快速构建空间逻辑与功能结构，完成从问题分析到解决方案输出的全过程。",
+    "强化结构化思考、决策效率与复杂问题拆解能力。"
                 ],
                 images: [
-                    "images/robot1.jpg",
-                    "images/robot2.jpg",
-                    "images/robot3.jpg",
-                    "images/robot4.jpg",
-                    "images/robot5.jpg"
+                    "images/design/11.jpg",
+                    "images/design/12.jpg",
+                    "images/design/13.jpg",
+                    "images/design/14.jpg",
+                    "images/design/15.jpg",
+                    "images/design/16.jpg",
+                    "images/design/17.jpg",
+                    "images/design/18.jpg",
+                    "images/design/19.jpg",
+                    "images/design/1.jpg",
+                    "images/design/2.jpg",
+                    "images/design/3.jpg",
+                    "images/design/4.jpg",
+                    "images/design/5.jpg",
+                    "images/design/6.jpg",
+                    
                 ]
             },
+           
             2: {
-                title: "国家植物园芍药展",
-                meta: "文创设计｜视觉识别｜展览传播",
-                description: [
-                    "项目围绕国家植物园芍药展展开，提炼芍药花形、植物意象与展览氛围，构建统一的视觉识别与文创表达体系。",
-                    "设计内容涵盖海报、周边衍生品、展示界面及主题视觉延展，强调植物展览的审美传播、品牌辨识度与场景应用效果。"
-                ],
-                images: [
-                    "images/project1-1.jpg",
-                    "images/project1-2.jpg",
-                    "images/project1-3.jpg",
-                    "images/project1-4.jpg",
-                    "images/project1-5.jpg"
-                ]
-            },
-            3: {
                 title: "浑源古城景区旅游总体规划",
                 meta: "景区规划｜文化遗产｜游线组织",
                 description: [
@@ -226,42 +235,50 @@
                     "重点处理古城空间结构梳理、核心景点串联、游客体验优化与在地文化传播，形成可实施、可运营、可传播的景区总体规划方案。"
                 ],
                 images: [
-                    "images/project2-1.jpg",
-                    "images/project2-2.jpg",
-                    "images/project2-3.jpg",
-                    "images/project2-4.jpg",
-                    "images/project2-5.jpg"
+                    "images/IP/1.jpg",
+                    "images/IP/2.jpg",
+                    "images/IP/3.jpg",
+                    "images/IP/4.jpg",
+                    "images/IP/5.jpg",
+                    
+                ]
+            },
+            3: {
+                title: "排版设计｜景观规划表达",
+                meta: "信息组织｜视觉层级｜版式构建",
+                description: [
+                     "基于版式构成与视觉节奏，进行系统化排版设计练习。",
+    "运用网格体系、留白关系与字体层级塑造清晰的信息结构。",
+    "强化画面节奏与视觉引导，提升整体表达的秩序感与设计感。"
+                ],
+                images: [
+                    "images/works/5.png",
+                    "images/works/2.jpg",
+                    "images/works/3.png",
+                    
+                
                 ]
             },
             4: {
-                title: "平谷区峪口镇乡村景观规划",
-                meta: "乡村振兴｜景观规划｜公共空间提升",
-                description: [
-                    "基于乡村产业基础、田园景观资源与村庄空间形态，对平谷区峪口镇进行系统性的乡村景观规划设计。",
-                    "通过节点营造、游线组织、公共空间提升与乡村特色塑造，增强乡村空间品质、游览吸引力与落地实施性。"
-                ],
-                images: [
-                    "images/project3-1.jpg",
-                    "images/project3-2.jpg",
-                    "images/project3-3.jpg",
-                    "images/project3-4.jpg",
-                    "images/project3-5.jpg"
-                ]
-            },
-            5: {
                 title: "个人手绘作品集",
                 meta: "手绘表达｜空间草图｜视觉叙事",
                 description: [
                     "作品集收录景观设计草图、节点推敲图、空间透视与概念表达，展示从前期构思到方案深化的全过程。",
                     "强调画面构图、空间层次、透视表达与个人视觉语言，体现手绘在设计思考与方案表达中的价值。"
                 ],
-                images: [
-                    "images/sketch1.jpg",
-                    "images/sketch2.jpg",
-                    "images/sketch3.jpg",
-                    "images/sketch4.jpg",
-                    "images/sketch5.jpg"
-                ]
+               images: [
+    "images/practice/1.jpg",
+    "images/practice/2.jpg",
+    "images/practice/3.jpg",
+    "images/practice/4.jpg",
+    "images/practice/5.jpg",
+    "images/practice/6.jpg",
+    "images/practice/7.jpg",
+    "images/practice/8.jpg",
+    "images/practice/9.jpg",
+    "images/practice/10.jpg",
+   
+]
             }
         };
 
