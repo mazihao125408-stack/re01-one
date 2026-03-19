@@ -306,6 +306,37 @@
                 line-height: 38px;
             }
         }
+
+        /* 手机端默认展开 + 初始隐藏动画状态 */
+@media (max-width: 768px) {
+    .left {
+        cursor: default;
+        transform: none !important;
+    }
+
+    .left:hover {
+        transform: none;
+    }
+
+    .detail-intro {
+        max-height: 1200px;
+        overflow: visible;
+    }
+
+    /* 初始隐藏，用于动画 */
+    .section-title,
+    .content-line {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    /* 动画激活状态 */
+    .mobile-show {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+}
     </style>
 </head>
 <body>
@@ -473,6 +504,25 @@ nextBtn.addEventListener("click", function(e) {
         
 
         updatePortfolio(currentIndex);
+     
+    function isMobile() {
+        return window.innerWidth <= 768;
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+        if (!isMobile()) return;
+
+        const items = document.querySelectorAll(
+            ".section-title, .content-line"
+        );
+
+        items.forEach((el, index) => {
+            setTimeout(() => {
+                el.classList.add("mobile-show");
+            }, index * 120); // 控制节奏（可以改 100~200）
+        });
+    });
+
     </script>
 
 </body>
