@@ -122,6 +122,15 @@
             cursor: pointer;
         }
 
+        .portfolio-card {
+            position: relative;
+            width: 100%;
+            cursor: pointer;
+            display: block;
+            text-decoration: none;
+            color: inherit;
+         }
+
         .portfolio-image-box {
             position: relative;
             width: 100%;
@@ -346,7 +355,7 @@
 
         <div class="right">
             <div class="portfolio-wrapper">
-                <div class="portfolio-card" id="portfolioCard">
+                <a class="portfolio-card" id="portfolioCard" href="project-detail.html?id=1">
                     <div class="portfolio-image-box">
                         <div class="page-indicator" id="pageIndicator">1 / 4</div>
 
@@ -365,54 +374,59 @@
                         <div class="detail-line p-delay-2" id="detail2">涵盖海报、衍生品、展示界面与主题视觉系统设计。</div>
                         <div class="detail-line p-delay-3" id="detail3">强调自然审美、传播辨识度与展览场景中的实际应用效果。</div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </div>
 
     <script>
+        
         const portfolioData = [
-            {
-                image: "images/project1.jpg",
-                captionMain: "国家植物园芍药展",
-                captionSub: "文创设计",
-                details: [
-                    "以芍药花形、植物意象与展览视觉识别为核心，构建系列文创表达。",
-                    "涵盖海报、衍生品、展示界面与主题视觉系统设计。",
-                    "强调自然审美、传播辨识度与展览场景中的实际应用效果。"
-                ]
-            },
-            {
-                image: "images/project2.jpg",
-                captionMain: "浑源古城景区",
-                captionSub: "旅游总体规划",
-                details: [
-                    "围绕古城空间结构、游线组织与文化节点塑造展开整体规划设计。",
-                    "重点处理历史风貌展示、游客体验优化与在地文化活化之间的关系。",
-                    "形成兼顾保护、运营与旅游传播的综合规划方案。"
-                ]
-            },
-            {
-                image: "images/project3.jpg",
-                captionMain: "平谷区峪口镇",
-                captionSub: "乡村景观规划",
-                details: [
-                    "结合乡村产业基础、景观资源与空间形态进行系统性景观更新设计。",
-                    "通过节点塑造、田园景观组织与公共空间提升增强乡村吸引力。",
-                    "突出乡村特色表达与可实施性相结合的设计逻辑。"
-                ]
-            },
-            {
-                image: "images/project4.jpg",
-                captionMain: "个人手绘作品集",
-                captionSub: "视觉表达",
-                details: [
-                    "收录景观设计草图、空间透视、节点推敲及概念表达作品。",
-                    "展示从前期构思到方案深化过程中的手绘思考与图像表达能力。",
-                    "强调空间感、画面层次与设计语言的个人风格。"
-                ]
-            }
-        ];
+    {
+        id: 2,
+        image: "images/project1.jpg",
+        captionMain: "国家植物园芍药展",
+        captionSub: "文创设计",
+        details: [
+            "以芍药花形、植物意象与展览视觉识别为核心，构建系列文创表达。",
+            "涵盖海报、衍生品、展示界面与主题视觉系统设计。",
+            "强调自然审美、传播辨识度与展览场景中的实际应用效果。"
+        ]
+    },
+    {
+        id: 3,
+        image: "images/project2.jpg",
+        captionMain: "浑源古城景区",
+        captionSub: "旅游总体规划",
+        details: [
+            "围绕古城空间结构、游线组织与文化节点塑造展开整体规划设计。",
+            "重点处理历史风貌展示、游客体验优化与在地文化活化之间的关系。",
+            "形成兼顾保护、运营与旅游传播的综合规划方案。"
+        ]
+    },
+    {
+        id: 4,
+        image: "images/project3.jpg",
+        captionMain: "平谷区峪口镇",
+        captionSub: "乡村景观规划",
+        details: [
+            "结合乡村产业基础、景观资源与空间形态进行系统性景观更新设计。",
+            "通过节点塑造、田园景观组织与公共空间提升增强乡村吸引力。",
+            "突出乡村特色表达与可实施性相结合的设计逻辑。"
+        ]
+    },
+    {
+        id: 5,
+        image: "images/project4.jpg",
+        captionMain: "个人手绘作品集",
+        captionSub: "视觉表达",
+        details: [
+            "收录景观设计草图、空间透视、节点推敲及概念表达作品。",
+            "展示从前期构思到方案深化过程中的手绘思考与图像表达能力。",
+            "强调空间感、画面层次与设计语言的个人风格。"
+        ]
+    }
+         ];
 
         let currentIndex = 0;
 
@@ -424,6 +438,7 @@
         const detail3 = document.getElementById("detail3");
         const prevBtn = document.getElementById("prevBtn");
         const nextBtn = document.getElementById("nextBtn");
+        const portfolioCard = document.getElementById("portfolioCard");
 
         function updatePortfolio(index) {
             const item = portfolioData[index];
@@ -437,19 +452,25 @@
             detail1.textContent = item.details[0] || "";
             detail2.textContent = item.details[1] || "";
             detail3.textContent = item.details[2] || "";
+
+            portfolioCard.href = `project-detail.html?id=${item.id}`;
         }
 
         prevBtn.addEventListener("click", function(e) {
-            e.stopPropagation();
-            currentIndex = (currentIndex - 1 + portfolioData.length) % portfolioData.length;
-            updatePortfolio(currentIndex);
-        });
+    e.preventDefault();
+    e.stopPropagation();
+    currentIndex = (currentIndex - 1 + portfolioData.length) % portfolioData.length;
+    updatePortfolio(currentIndex);
+});
 
-        nextBtn.addEventListener("click", function(e) {
-            e.stopPropagation();
-            currentIndex = (currentIndex + 1) % portfolioData.length;
-            updatePortfolio(currentIndex);
-        });
+nextBtn.addEventListener("click", function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    currentIndex = (currentIndex + 1) % portfolioData.length;
+    updatePortfolio(currentIndex);
+});
+
+        
 
         updatePortfolio(currentIndex);
     </script>
